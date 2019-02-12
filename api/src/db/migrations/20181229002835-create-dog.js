@@ -8,13 +8,22 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      fullName: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      reg: {
+      registrationNumber: {
         allowNull: false,
         type: Sequelize.STRING,
+        unique: true,
+      },
+      birthday: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      sex: {
+        allowNull: false,
+        type: Sequelize.ENUM(['male', 'bitch'])
       },
       createdAt: {
         allowNull: false,
