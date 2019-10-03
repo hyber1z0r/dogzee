@@ -4,7 +4,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import { ApolloServer } from 'apollo-server-express';
-import { typeDefs } from './schema';
+import { typeDefs, resolvers } from './schema';
 
 class App {
   public app: express.Application;
@@ -12,7 +12,7 @@ class App {
 
   constructor() {
     this.app = express();
-    this.server = new ApolloServer({ typeDefs, resolvers: {} });
+    this.server = new ApolloServer({ typeDefs, resolvers });
     this.config();
   }
 

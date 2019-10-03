@@ -1,4 +1,12 @@
-import { Table, Column, Model, DataType, CreatedAt, UpdatedAt, Unique } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  CreatedAt,
+  UpdatedAt,
+  Unique,
+} from 'sequelize-typescript';
 
 @Table({
   tableName: 'dogs',
@@ -16,7 +24,7 @@ export class Dog extends Model<Dog> {
   @Column
   birthday: Date;
 
-  @Column(DataType.ENUM(['male', 'bitch']))
+  @Column(DataType.ENUM(['Male', 'Bitch']))
   sex: string;
 
   @CreatedAt

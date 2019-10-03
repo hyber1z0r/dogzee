@@ -1,0 +1,28 @@
+enum Sex {
+    Male
+    Bitch
+}
+
+type Dog {
+    id: ID
+    fullName: String!
+    registrationNumber: String!
+    birthday: DateTime!
+    sex: String!
+}
+
+extend type Query {
+    dogs: [Dog]
+    dog(id: ID!): Dog
+}
+
+input DogInput {
+    fullName: String!
+    registrationNumber: String!
+    birthday: DateTime!
+    sex: Sex!
+}
+
+extend type Mutation {
+    createDog(dog: DogInput): ID
+}

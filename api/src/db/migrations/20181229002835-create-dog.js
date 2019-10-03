@@ -23,7 +23,7 @@ module.exports = {
       },
       sex: {
         allowNull: false,
-        type: Sequelize.ENUM(['male', 'bitch'])
+        type: Sequelize.ENUM(['Male', 'Bitch'])
       },
       createdAt: {
         allowNull: false,

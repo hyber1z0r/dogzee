@@ -1,5 +1,10 @@
+import Scalar from './type-defs/Scalar.graphql';
 import Query from './type-defs/Query.graphql';
-import Book from './type-defs/Book.graphql';
-import Author from './type-defs/Author.graphql';
+import Mutation from './type-defs/Mutation.graphql';
+import Dog from './type-defs/Dog.graphql';
+import { GraphQLDateTime } from 'graphql-iso-date';
+import dogResolvers from './resolvers/dog.resolvers';
+import { merge } from 'lodash';
 
-export const typeDefs = [Query, Book, Author];
+export const typeDefs = [Scalar, Query, Mutation, Dog];
+export const resolvers = merge({ DateTime: GraphQLDateTime }, dogResolvers);
