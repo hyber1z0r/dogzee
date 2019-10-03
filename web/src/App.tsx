@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import MineHunde from './pages/MineHunde';
+import React from 'react';
+import { Layout } from 'antd';
+import Routes from './components/Routes';
+import Navbar from './components/Navbar';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Route path="/" exact={true} component={MineHunde}/>
-      </Router>
-    );
-  }
-}
+const { Content } = Layout;
+
+const App = () => {
+  return (
+    <Layout>
+      <Navbar/>
+      <Content>
+        <Routes/>
+      </Content>
+    </Layout>
+  );
+};
 
 export default App;
