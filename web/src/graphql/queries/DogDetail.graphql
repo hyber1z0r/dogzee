@@ -1,0 +1,9 @@
+query DogDetail($dogId: ID!) {
+    dog(id: $dogId) {
+        id
+        fullName
+        birthday
+        registrationNumber
+        sex
+    }
+}

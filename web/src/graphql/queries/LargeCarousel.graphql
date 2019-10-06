@@ -1,0 +1,9 @@
+query LargeCarousel {
+    dogs {
+        id
+        fullName
+        sex
+        birthday
+        registrationNumber
+    }
+}

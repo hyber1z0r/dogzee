@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  min-width: 100%;
+  overflow-x: auto;
+  // Box-shadow + overflow scroll fix
+  padding: 4rem 0;
+  margin: -4rem 0;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

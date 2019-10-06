@@ -1,0 +1,8 @@
+@mixin card-shadow {
+  box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.07);
+  transition-duration: 200ms;
+  transition-property: box-shadow;
+  &:hover {
+    box-shadow: 0 7px 64px 0 rgba(0, 0, 0, 0.21);
+  }
+}
