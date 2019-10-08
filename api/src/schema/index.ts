@@ -10,3 +10,4 @@ import { merge } from 'lodash';
 
 export const typeDefs = [Scalar, Query, Mutation, Dog, User];
 export const resolvers = merge({ DateTime: GraphQLDateTime }, dogResolvers, userResolvers);
+export { context } from './context';

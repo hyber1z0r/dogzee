@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import cors from 'cors';
 import { ApolloServer } from 'apollo-server-express';
-import { typeDefs, resolvers } from './schema';
+import { typeDefs, resolvers, context } from './schema';
 
 class App {
   public app: express.Application;
@@ -13,7 +13,7 @@ class App {
 
   constructor() {
     this.app = express();
-    this.server = new ApolloServer({ typeDefs, resolvers });
+    this.server = new ApolloServer({ typeDefs, resolvers, context });
     this.config();
   }
 
