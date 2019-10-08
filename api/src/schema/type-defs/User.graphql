@@ -8,3 +8,13 @@ extend type Query {
     me: User!
     user(id: ID!): User!
 }
+
+input UserInput {
+    fullName: String!
+    email: String!
+    password: String!
+}
+
+extend type Mutation {
+    createUser(user: UserInput): ID!
+}

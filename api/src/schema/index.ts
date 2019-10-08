@@ -5,7 +5,8 @@ import Dog from './type-defs/Dog.graphql';
 import User from './type-defs/User.graphql';
 import { GraphQLDateTime } from 'graphql-iso-date';
 import dogResolvers from './resolvers/dog.resolvers';
+import userResolvers from './resolvers/user.resolvers';
 import { merge } from 'lodash';
 
 export const typeDefs = [Scalar, Query, Mutation, Dog, User];
-export const resolvers = merge({ DateTime: GraphQLDateTime }, dogResolvers);
+export const resolvers = merge({ DateTime: GraphQLDateTime }, dogResolvers, userResolvers);

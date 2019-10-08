@@ -47,11 +47,17 @@ export type Mutation = {
    __typename?: 'Mutation',
   _empty?: Maybe<Scalars['String']>,
   createDog?: Maybe<Scalars['ID']>,
+  createUser: Scalars['ID'],
 };
 
 
 export type MutationCreateDogArgs = {
   dog?: Maybe<DogInput>
+};
+
+
+export type MutationCreateUserArgs = {
+  user?: Maybe<UserInput>
 };
 
 export type Query = {
@@ -84,6 +90,12 @@ export type User = {
   id: Scalars['ID'],
   fullName?: Maybe<Scalars['String']>,
   dogs?: Maybe<Array<Dog>>,
+};
+
+export type UserInput = {
+  fullName: Scalars['String'],
+  email: Scalars['String'],
+  password: Scalars['String'],
 };
 
 
@@ -165,6 +177,7 @@ export type ResolversTypes = {
   Mutation: ResolverTypeWrapper<{}>,
   DogInput: DogInput,
   Sex: Sex,
+  UserInput: UserInput,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
   CacheControlScope: CacheControlScope,
   Upload: ResolverTypeWrapper<Scalars['Upload']>,
@@ -182,6 +195,7 @@ export type ResolversParentTypes = {
   Mutation: {},
   DogInput: DogInput,
   Sex: Sex,
+  UserInput: UserInput,
   Boolean: Scalars['Boolean'],
   CacheControlScope: CacheControlScope,
   Upload: Scalars['Upload'],
@@ -207,6 +221,7 @@ export type DogResolvers<ContextType = any, ParentType extends ResolversParentTy
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
   _empty?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   createDog?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType, MutationCreateDogArgs>,
+  createUser?: Resolver<ResolversTypes['ID'], ParentType, ContextType, MutationCreateUserArgs>,
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
