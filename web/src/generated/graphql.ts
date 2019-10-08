@@ -29,10 +29,11 @@ export enum CacheControlScope {
 export type Dog = {
    __typename?: 'Dog',
   id: Scalars['ID'],
-  fullName: Scalars['String'],
-  registrationNumber: Scalars['String'],
-  birthday: Scalars['DateTime'],
-  sex: Scalars['String'],
+  fullName?: Maybe<Scalars['String']>,
+  registrationNumber?: Maybe<Scalars['String']>,
+  birthday?: Maybe<Scalars['DateTime']>,
+  sex?: Maybe<Scalars['String']>,
+  owner?: Maybe<User>,
 };
 
 export type DogInput = {
@@ -40,6 +41,7 @@ export type DogInput = {
   registrationNumber: Scalars['String'],
   birthday: Scalars['DateTime'],
   sex: Sex,
+  ownerId: Scalars['String'],
 };
 
 export type Mutation = {
@@ -58,6 +60,8 @@ export type Query = {
   _empty?: Maybe<Scalars['String']>,
   dogs: Array<Dog>,
   dog?: Maybe<Dog>,
+  me: User,
+  user: User,
 };
 
 
@@ -65,11 +69,23 @@ export type QueryDogArgs = {
   id: Scalars['ID']
 };
 
+
+export type QueryUserArgs = {
+  id: Scalars['ID']
+};
+
 export enum Sex {
-  Male = 'Male',
-  Bitch = 'Bitch'
+  Male = 'MALE',
+  Bitch = 'BITCH'
 }
 
+
+export type User = {
+   __typename?: 'User',
+  id: Scalars['ID'],
+  fullName?: Maybe<Scalars['String']>,
+  dogs?: Maybe<Array<Dog>>,
+};
 
 export type DogDetailQueryVariables = {
   dogId: Scalars['ID']

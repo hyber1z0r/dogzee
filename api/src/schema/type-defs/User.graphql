@@ -1,0 +1,10 @@
+type User {
+    id: ID!
+    fullName: String
+    dogs: [Dog!]
+}
+
+extend type Query {
+    me: User!
+    user(id: ID!): User!
+}

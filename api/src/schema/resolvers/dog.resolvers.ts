@@ -25,6 +25,7 @@ const mutationResolvers: MutationResolvers = {
     try {
       return await createDog(args.dog);
     } catch (e) {
+      console.log('e', e);
       if (e instanceof ValidationError) {
         throw new UserInputError('Invalid input', { errors: (e as ValidationError).errors });
       }

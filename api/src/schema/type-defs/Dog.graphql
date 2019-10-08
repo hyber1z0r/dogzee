@@ -1,14 +1,15 @@
 enum Sex {
-    Male
-    Bitch
+    MALE
+    BITCH
 }
 
 type Dog {
     id: ID!
-    fullName: String!
-    registrationNumber: String!
-    birthday: DateTime!
-    sex: String!
+    fullName: String
+    registrationNumber: String
+    birthday: DateTime
+    sex: String
+    owner: User
 }
 
 extend type Query {
@@ -21,6 +22,7 @@ input DogInput {
     registrationNumber: String!
     birthday: DateTime!
     sex: Sex!
+    ownerId: String!
 }
 
 extend type Mutation {

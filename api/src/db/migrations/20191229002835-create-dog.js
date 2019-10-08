@@ -4,9 +4,9 @@ module.exports = {
     return queryInterface.createTable('dogs', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
       },
       fullName: {
         allowNull: false,
@@ -23,7 +23,15 @@ module.exports = {
       },
       sex: {
         allowNull: false,
-        type: Sequelize.ENUM(['Male', 'Bitch'])
+        type: Sequelize.ENUM(['MALE', 'BITCH'])
+      },
+      ownerId: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

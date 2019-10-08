@@ -27,11 +27,12 @@ export enum CacheControlScope {
 
 export type Dog = {
    __typename?: 'Dog',
-  id?: Maybe<Scalars['ID']>,
-  fullName: Scalars['String'],
-  registrationNumber: Scalars['String'],
-  birthday: Scalars['DateTime'],
-  sex: Scalars['String'],
+  id: Scalars['ID'],
+  fullName?: Maybe<Scalars['String']>,
+  registrationNumber?: Maybe<Scalars['String']>,
+  birthday?: Maybe<Scalars['DateTime']>,
+  sex?: Maybe<Scalars['String']>,
+  owner?: Maybe<User>,
 };
 
 export type DogInput = {
@@ -39,6 +40,7 @@ export type DogInput = {
   registrationNumber: Scalars['String'],
   birthday: Scalars['DateTime'],
   sex: Sex,
+  ownerId: Scalars['String'],
 };
 
 export type Mutation = {
@@ -55,8 +57,10 @@ export type MutationCreateDogArgs = {
 export type Query = {
    __typename?: 'Query',
   _empty?: Maybe<Scalars['String']>,
-  dogs?: Maybe<Array<Maybe<Dog>>>,
+  dogs: Array<Dog>,
   dog?: Maybe<Dog>,
+  me: User,
+  user: User,
 };
 
 
@@ -64,11 +68,23 @@ export type QueryDogArgs = {
   id: Scalars['ID']
 };
 
+
+export type QueryUserArgs = {
+  id: Scalars['ID']
+};
+
 export enum Sex {
-  Male = 'Male',
-  Bitch = 'Bitch'
+  Male = 'MALE',
+  Bitch = 'BITCH'
 }
 
+
+export type User = {
+   __typename?: 'User',
+  id: Scalars['ID'],
+  fullName?: Maybe<Scalars['String']>,
+  dogs?: Maybe<Array<Dog>>,
+};
 
 
 export type ResolverTypeWrapper<T> = Promise<T> | T;
@@ -145,6 +161,7 @@ export type ResolversTypes = {
   Dog: ResolverTypeWrapper<Dog>,
   ID: ResolverTypeWrapper<Scalars['ID']>,
   DateTime: ResolverTypeWrapper<Scalars['DateTime']>,
+  User: ResolverTypeWrapper<User>,
   Mutation: ResolverTypeWrapper<{}>,
   DogInput: DogInput,
   Sex: Sex,
@@ -161,6 +178,7 @@ export type ResolversParentTypes = {
   Dog: Dog,
   ID: Scalars['ID'],
   DateTime: Scalars['DateTime'],
+  User: User,
   Mutation: {},
   DogInput: DogInput,
   Sex: Sex,
@@ -178,11 +196,12 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 }
 
 export type DogResolvers<ContextType = any, ParentType extends ResolversParentTypes['Dog'] = ResolversParentTypes['Dog']> = {
-  id?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType>,
-  fullName?: Resolver<ResolversTypes['String'], ParentType, ContextType>,
-  registrationNumber?: Resolver<ResolversTypes['String'], ParentType, ContextType>,
-  birthday?: Resolver<ResolversTypes['DateTime'], ParentType, ContextType>,
-  sex?: Resolver<ResolversTypes['String'], ParentType, ContextType>,
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>,
+  fullName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  registrationNumber?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  birthday?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>,
+  sex?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  owner?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>,
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
@@ -192,13 +211,21 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   _empty?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
-  dogs?: Resolver<Maybe<Array<Maybe<ResolversTypes['Dog']>>>, ParentType, ContextType>,
+  dogs?: Resolver<Array<ResolversTypes['Dog']>, ParentType, ContextType>,
   dog?: Resolver<Maybe<ResolversTypes['Dog']>, ParentType, ContextType, RequireFields<QueryDogArgs, 'id'>>,
+  me?: Resolver<ResolversTypes['User'], ParentType, ContextType>,
+  user?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>,
 };
 
 export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
   name: 'Upload'
 }
+
+export type UserResolvers<ContextType = any, ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User']> = {
+  id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>,
+  fullName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  dogs?: Resolver<Maybe<Array<ResolversTypes['Dog']>>, ParentType, ContextType>,
+};
 
 export type Resolvers<ContextType = any> = {
   DateTime?: GraphQLScalarType,
@@ -206,6 +233,7 @@ export type Resolvers<ContextType = any> = {
   Mutation?: MutationResolvers<ContextType>,
   Query?: QueryResolvers<ContextType>,
   Upload?: GraphQLScalarType,
+  User?: UserResolvers<ContextType>,
 };
 
 
