@@ -7,7 +7,7 @@ import {
   Unique, HasMany, PrimaryKey, Default, DataType, AllowNull, IsEmail, BeforeCreate, BeforeUpdate,
 } from 'sequelize-typescript';
 import { Dog } from '.';
-import bcrypt from 'bcrypt';
+import { hash, compare } from 'bcrypt';
 
 const SALT_ROUNDS = 10;
 
@@ -50,12 +50,13 @@ export class User extends Model<User> {
   @BeforeUpdate
   @BeforeCreate
   static async hashPassword(instance: User): Promise<void> {
-    console.log('hashPassword', instance.password);
     if (!instance.changed('password')) {
       return void 0;
     }
-    console.log('hashing...');
-    instance.password = await bcrypt.hash(instance.password, SALT_ROUNDS);
-    console.log('hashed it', instance.password);
+    instance.password = await hash(instance.password, SALT_ROUNDS);
+  }
+
+  async comparePassword(candidatePassword: string): Promise<boolean> {
+    return await compare(candidatePassword, this.password);
   }
 }

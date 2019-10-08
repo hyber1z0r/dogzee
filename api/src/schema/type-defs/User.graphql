@@ -15,6 +15,12 @@ input UserInput {
     password: String!
 }
 
+input Credentials {
+    email: String!
+    password: String!
+}
+
 extend type Mutation {
     createUser(user: UserInput): ID!
+    login(credentials: Credentials): String!
 }

@@ -24,6 +24,11 @@ export enum CacheControlScope {
   Private = 'PRIVATE'
 }
 
+export type Credentials = {
+  email: Scalars['String'],
+  password: Scalars['String'],
+};
+
 
 export type Dog = {
    __typename?: 'Dog',
@@ -48,6 +53,7 @@ export type Mutation = {
   _empty?: Maybe<Scalars['String']>,
   createDog?: Maybe<Scalars['ID']>,
   createUser: Scalars['ID'],
+  login: Scalars['String'],
 };
 
 
@@ -58,6 +64,11 @@ export type MutationCreateDogArgs = {
 
 export type MutationCreateUserArgs = {
   user?: Maybe<UserInput>
+};
+
+
+export type MutationLoginArgs = {
+  credentials?: Maybe<Credentials>
 };
 
 export type Query = {
@@ -178,6 +189,7 @@ export type ResolversTypes = {
   DogInput: DogInput,
   Sex: Sex,
   UserInput: UserInput,
+  Credentials: Credentials,
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>,
   CacheControlScope: CacheControlScope,
   Upload: ResolverTypeWrapper<Scalars['Upload']>,
@@ -196,6 +208,7 @@ export type ResolversParentTypes = {
   DogInput: DogInput,
   Sex: Sex,
   UserInput: UserInput,
+  Credentials: Credentials,
   Boolean: Scalars['Boolean'],
   CacheControlScope: CacheControlScope,
   Upload: Scalars['Upload'],
@@ -222,6 +235,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
   _empty?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   createDog?: Resolver<Maybe<ResolversTypes['ID']>, ParentType, ContextType, MutationCreateDogArgs>,
   createUser?: Resolver<ResolversTypes['ID'], ParentType, ContextType, MutationCreateUserArgs>,
+  login?: Resolver<ResolversTypes['String'], ParentType, ContextType, MutationLoginArgs>,
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
