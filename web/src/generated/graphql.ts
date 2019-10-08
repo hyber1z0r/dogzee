@@ -25,6 +25,11 @@ export enum CacheControlScope {
   Private = 'PRIVATE'
 }
 
+export type Credentials = {
+  email: Scalars['String'],
+  password: Scalars['String'],
+};
+
 
 export type Dog = {
    __typename?: 'Dog',
@@ -48,11 +53,23 @@ export type Mutation = {
    __typename?: 'Mutation',
   _empty?: Maybe<Scalars['String']>,
   createDog?: Maybe<Scalars['ID']>,
+  createUser: Scalars['ID'],
+  login: Scalars['String'],
 };
 
 
 export type MutationCreateDogArgs = {
   dog?: Maybe<DogInput>
+};
+
+
+export type MutationCreateUserArgs = {
+  user?: Maybe<UserInput>
+};
+
+
+export type MutationLoginArgs = {
+  credentials?: Maybe<Credentials>
 };
 
 export type Query = {
@@ -87,6 +104,22 @@ export type User = {
   dogs?: Maybe<Array<Dog>>,
 };
 
+export type UserInput = {
+  fullName: Scalars['String'],
+  email: Scalars['String'],
+  password: Scalars['String'],
+};
+
+export type LoginMutationVariables = {
+  credentials?: Maybe<Credentials>
+};
+
+
+export type LoginMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'login'>
+);
+
 export type DogDetailQueryVariables = {
   dogId: Scalars['ID']
 };
@@ -112,6 +145,36 @@ export type LargeCarouselQuery = (
 );
 
 
+export const LoginDocument = gql`
+    mutation Login($credentials: Credentials) {
+  login(credentials: $credentials)
+}
+    `;
+export type LoginMutationFn = ApolloReactCommon.MutationFunction<LoginMutation, LoginMutationVariables>;
+
+/**
+ * __useLoginMutation__
+ *
+ * To run a mutation, you first call `useLoginMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLoginMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [loginMutation, { data, loading, error }] = useLoginMutation({
+ *   variables: {
+ *      credentials: // value for 'credentials'
+ *   },
+ * });
+ */
+export function useLoginMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<LoginMutation, LoginMutationVariables>) {
+        return ApolloReactHooks.useMutation<LoginMutation, LoginMutationVariables>(LoginDocument, baseOptions);
+      }
+export type LoginMutationHookResult = ReturnType<typeof useLoginMutation>;
+export type LoginMutationResult = ApolloReactCommon.MutationResult<LoginMutation>;
+export type LoginMutationOptions = ApolloReactCommon.BaseMutationOptions<LoginMutation, LoginMutationVariables>;
 export const DogDetailDocument = gql`
     query DogDetail($dogId: ID!) {
   dog(id: $dogId) {
