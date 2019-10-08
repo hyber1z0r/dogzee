@@ -34,6 +34,7 @@ module.exports = [
               javascriptEnabled: true,
               modifyVars: {
                 '@primary-color': '#6979F8',
+                '@error-color': '#FF647C'
               }
             }
           }]

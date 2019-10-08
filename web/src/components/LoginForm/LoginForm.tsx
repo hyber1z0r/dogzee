@@ -3,6 +3,9 @@ import * as React from 'react';
 import { FormComponentProps } from 'antd/es/form';
 import styles from './LoginForm.module.scss';
 import { Link } from 'react-router-dom';
+import { ApolloError } from 'apollo-client';
+import { GraphQLError } from 'graphql';
+import ErrorMessage from '../ErrorMessage';
 
 export type LoginFormValues = {
   email: string;
@@ -12,9 +15,10 @@ export type LoginFormValues = {
 type Props = {
   onSubmit: (values: LoginFormValues) => void;
   loading: boolean;
+  submitError: ApolloError | undefined;
 } & FormComponentProps<LoginFormValues>
 
-const LoginForm = ({ onSubmit, loading, form }: Props) => {
+const LoginForm = ({ onSubmit, loading, submitError, form }: Props) => {
   const { getFieldDecorator, validateFields } = form;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -59,6 +63,9 @@ const LoginForm = ({ onSubmit, loading, form }: Props) => {
                 className={styles.loginFormButton}>
           Log ind
         </Button>
+        {!!submitError && submitError.graphQLErrors.map((error: GraphQLError, index: number) => (
+          <ErrorMessage key={index}>{error.message}</ErrorMessage>
+        ))}
         <p className={styles.signup}>Ny bruger? <Link to={'/signup'}>Opret profil</Link></p>
       </Form.Item>
     </Form>
