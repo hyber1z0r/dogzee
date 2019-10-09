@@ -16,7 +16,7 @@ const LoginFormContainer = () => {
 
   if (data) {
     setToken(data.login);
-    return <Redirect to={'/'}/>;
+    return <Redirect to={'/my-dogs'}/>;
   }
 
   return <LoginForm loading={loading} onSubmit={handleSubmit} submitError={error}/>;
