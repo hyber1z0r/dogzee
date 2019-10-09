@@ -5,8 +5,8 @@ type User {
 }
 
 extend type Query {
-    me: User!
-    user(id: ID!): User!
+    me: User
+    user(id: ID!): User
 }
 
 input UserInput {

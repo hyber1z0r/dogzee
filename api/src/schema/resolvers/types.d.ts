@@ -77,8 +77,8 @@ export type Query = {
   _empty?: Maybe<Scalars['String']>,
   dogs: Array<Dog>,
   dog?: Maybe<Dog>,
-  me: User,
-  user: User,
+  me?: Maybe<User>,
+  user?: Maybe<User>,
 };
 
 
@@ -243,8 +243,8 @@ export type QueryResolvers<ContextType = any, ParentType extends ResolversParent
   _empty?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   dogs?: Resolver<Array<ResolversTypes['Dog']>, ParentType, ContextType>,
   dog?: Resolver<Maybe<ResolversTypes['Dog']>, ParentType, ContextType, RequireFields<QueryDogArgs, 'id'>>,
-  me?: Resolver<ResolversTypes['User'], ParentType, ContextType>,
-  user?: Resolver<ResolversTypes['User'], ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>,
+  me?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>,
+  user?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType, RequireFields<QueryUserArgs, 'id'>>,
 };
 
 export interface UploadScalarConfig extends GraphQLScalarTypeConfig<ResolversTypes['Upload'], any> {
