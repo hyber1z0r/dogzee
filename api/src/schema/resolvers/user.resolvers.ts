@@ -1,9 +1,18 @@
-import { User, MutationResolvers } from './types';
-import { createUser, findBy } from '../../controllers';
+import { User, MutationResolvers, QueryResolvers } from './types';
+import { createUser, findBy, getUser } from '../../controllers';
 import { UserInputError } from 'apollo-server-errors';
 import { ValidationError } from 'sequelize';
 import { AuthenticationError, NotFoundError } from '../../errors';
 import jwt from 'jsonwebtoken';
+
+const queryResolvers: QueryResolvers = {
+  me: async (parent, args, context, info): Promise<User> => {
+    if (!context.user) {
+      throw new AuthenticationError('Du er ikke logget ind.');
+    }
+    return getUser(context.user.id);
+  },
+};
 
 const mutationResolvers: MutationResolvers = {
   createUser: async (parent, args, context, info): Promise<User['id']> => {
@@ -29,4 +38,4 @@ const mutationResolvers: MutationResolvers = {
   },
 };
 
-export default { Mutation: mutationResolvers };
+export default { Query: queryResolvers, Mutation: mutationResolvers };
