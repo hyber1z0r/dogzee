@@ -19,11 +19,11 @@ const mutationResolvers: MutationResolvers = {
     const { email, password } = args.credentials;
     const user = await findBy('email', email);
     if (!user) {
-      throw new NotFoundError(`User with email: "${email}" not found`);
+      throw new NotFoundError(`Der blev ikke fundet nogen bruger med email-adressen "${email}".`);
     }
     const match: boolean = await user.comparePassword(password);
     if (!match) {
-      throw new AuthenticationError(`Password incorrect for user with email: "${email}"`);
+      throw new AuthenticationError(`Forkert kodeord`);
     }
     return jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
   },
