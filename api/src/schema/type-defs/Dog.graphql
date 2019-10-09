@@ -22,7 +22,8 @@ input DogInput {
     registrationNumber: String!
     birthday: DateTime!
     sex: Sex!
-    ownerId: String!
+    color: String!
+    ownerId: String
 }
 
 extend type Mutation {

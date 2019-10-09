@@ -45,7 +45,8 @@ export type DogInput = {
   registrationNumber: Scalars['String'],
   birthday: Scalars['DateTime'],
   sex: Sex,
-  ownerId: Scalars['String'],
+  color: Scalars['String'],
+  ownerId?: Maybe<Scalars['String']>,
 };
 
 export type Mutation = {
