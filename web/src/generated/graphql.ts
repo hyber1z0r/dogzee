@@ -35,10 +35,18 @@ export type Dog = {
    __typename?: 'Dog',
   id: Scalars['ID'],
   fullName?: Maybe<Scalars['String']>,
+  image?: Maybe<Scalars['String']>,
+  nickname?: Maybe<Scalars['String']>,
   registrationNumber?: Maybe<Scalars['String']>,
   birthday?: Maybe<Scalars['DateTime']>,
   sex?: Maybe<Scalars['String']>,
+  title1?: Maybe<Scalars['String']>,
+  title2?: Maybe<Scalars['String']>,
+  title3?: Maybe<Scalars['String']>,
+  color?: Maybe<Scalars['String']>,
   owner?: Maybe<User>,
+  mother?: Maybe<Dog>,
+  father?: Maybe<Dog>,
 };
 
 export type DogInput = {
@@ -139,9 +147,13 @@ export type LargeCarouselQueryVariables = {};
 
 export type LargeCarouselQuery = (
   { __typename?: 'Query' }
-  & { dogs: Array<(
-    { __typename?: 'Dog' }
-    & Pick<Dog, 'id' | 'fullName' | 'sex' | 'birthday' | 'registrationNumber'>
+  & { me: Maybe<(
+    { __typename?: 'User' }
+    & Pick<User, 'id'>
+    & { dogs: Maybe<Array<(
+      { __typename?: 'Dog' }
+      & Pick<Dog, 'id' | 'fullName' | 'image'>
+    )>> }
   )> }
 );
 
@@ -215,12 +227,13 @@ export type DogDetailLazyQueryHookResult = ReturnType<typeof useDogDetailLazyQue
 export type DogDetailQueryResult = ApolloReactCommon.QueryResult<DogDetailQuery, DogDetailQueryVariables>;
 export const LargeCarouselDocument = gql`
     query LargeCarousel {
-  dogs {
+  me {
     id
-    fullName
-    sex
-    birthday
-    registrationNumber
+    dogs {
+      id
+      fullName
+      image
+    }
   }
 }
     `;

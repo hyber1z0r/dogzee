@@ -20,7 +20,7 @@ const LargeCarouselContainer = ({ title }: Props) => {
     return <LoadingErrorAlert/>;
   }
 
-  const dogs: Dog[] = data!.dogs!;
+  const dogs: Dog[] = data!.me!.dogs!;
 
   return (
     <LargeCarousel title={title} dogs={dogs}/>

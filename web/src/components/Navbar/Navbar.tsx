@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Layout } from 'antd';
-import styles from './Navbar.module.scss';
 import Menu from '../Menu';
+import styles from './Navbar.module.scss';
 
 const { Header } = Layout;
 

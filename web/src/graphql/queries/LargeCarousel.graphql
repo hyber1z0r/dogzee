@@ -1,9 +1,10 @@
 query LargeCarousel {
-    dogs {
+    me {
         id
-        fullName
-        sex
-        birthday
-        registrationNumber
+        dogs {
+            id
+            fullName
+            image
+        }
     }
 }

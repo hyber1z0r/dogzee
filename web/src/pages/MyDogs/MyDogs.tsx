@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './MyDogs.module.scss';
 import LargeCarousel from '../../components/LargeCarousel';
+import styles from './MyDogs.module.scss';
 
 const MyDogs = () => {
   return (

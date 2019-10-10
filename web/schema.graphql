@@ -7,11 +7,19 @@ schema {
 
 type Dog {
     birthday: DateTime
+    color: String
+    father: Dog
     fullName: String
     id: ID!
+    image: String
+    mother: Dog
+    nickname: String
     owner: User
     registrationNumber: String
     sex: String
+    title1: String
+    title2: String
+    title3: String
 }
 
 type Mutation {
@@ -25,8 +33,8 @@ type Query {
     _empty: String
     dog(id: ID!): Dog
     dogs: [Dog!]!
-    me: User!
-    user(id: ID!): User!
+    me: User
+    user(id: ID!): User
 }
 
 type User {
@@ -52,8 +60,9 @@ input Credentials {
 
 input DogInput {
     birthday: DateTime!
+    color: String!
     fullName: String!
-    ownerId: String!
+    ownerId: String
     registrationNumber: String!
     sex: Sex!
 }
