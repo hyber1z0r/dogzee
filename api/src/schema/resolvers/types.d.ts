@@ -34,10 +34,18 @@ export type Dog = {
    __typename?: 'Dog',
   id: Scalars['ID'],
   fullName?: Maybe<Scalars['String']>,
+  image?: Maybe<Scalars['String']>,
+  nickname?: Maybe<Scalars['String']>,
   registrationNumber?: Maybe<Scalars['String']>,
   birthday?: Maybe<Scalars['DateTime']>,
   sex?: Maybe<Scalars['String']>,
+  title1?: Maybe<Array<Maybe<Scalars['String']>>>,
+  title2?: Maybe<Array<Maybe<Scalars['String']>>>,
+  title3?: Maybe<Array<Maybe<Scalars['String']>>>,
+  color?: Maybe<Scalars['String']>,
   owner?: Maybe<User>,
+  mother?: Maybe<Dog>,
+  father?: Maybe<Dog>,
 };
 
 export type DogInput = {
@@ -226,10 +234,18 @@ export interface DateTimeScalarConfig extends GraphQLScalarTypeConfig<ResolversT
 export type DogResolvers<ContextType = any, ParentType extends ResolversParentTypes['Dog'] = ResolversParentTypes['Dog']> = {
   id?: Resolver<ResolversTypes['ID'], ParentType, ContextType>,
   fullName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  nickname?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   registrationNumber?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   birthday?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>,
   sex?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
+  title1?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
+  title2?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
+  title3?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>,
+  color?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>,
   owner?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>,
+  mother?: Resolver<Maybe<ResolversTypes['Dog']>, ParentType, ContextType>,
+  father?: Resolver<Maybe<ResolversTypes['Dog']>, ParentType, ContextType>,
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {

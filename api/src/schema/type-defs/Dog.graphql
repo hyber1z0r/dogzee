@@ -6,10 +6,18 @@ enum Sex {
 type Dog {
     id: ID!
     fullName: String
+    image: String
+    nickname: String
     registrationNumber: String
     birthday: DateTime
     sex: String
+    title1: [String]
+    title2: [String]
+    title3: [String]
+    color: String
     owner: User
+    mother: Dog
+    father: Dog
 }
 
 extend type Query {
