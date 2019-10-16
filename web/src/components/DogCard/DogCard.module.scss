@@ -1,0 +1,38 @@
+@import "../../mixins";
+
+.container {
+  margin-left: 1rem;
+
+  &:first-child {
+    margin-left: 2.5rem;
+  }
+}
+
+.card {
+  width: 236px;
+  border-radius: 0.5rem;
+  @include card-shadow;
+
+  [class="ant-card-body"] {
+    padding: 1rem;
+  }
+
+  .coverImage {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    padding-right: 1rem;
+  }
+}

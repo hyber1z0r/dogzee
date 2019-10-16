@@ -5,6 +5,7 @@ query LargeCarousel {
             id
             fullName
             image
+            sex
         }
     }
 }

@@ -40,9 +40,9 @@ export type Dog = {
   registrationNumber?: Maybe<Scalars['String']>,
   birthday?: Maybe<Scalars['DateTime']>,
   sex?: Maybe<Scalars['String']>,
-  title1?: Maybe<Scalars['String']>,
-  title2?: Maybe<Scalars['String']>,
-  title3?: Maybe<Scalars['String']>,
+  title1?: Maybe<Array<Maybe<Scalars['String']>>>,
+  title2?: Maybe<Array<Maybe<Scalars['String']>>>,
+  title3?: Maybe<Array<Maybe<Scalars['String']>>>,
   color?: Maybe<Scalars['String']>,
   owner?: Maybe<User>,
   mother?: Maybe<Dog>,
@@ -152,7 +152,7 @@ export type LargeCarouselQuery = (
     & Pick<User, 'id'>
     & { dogs: Maybe<Array<(
       { __typename?: 'Dog' }
-      & Pick<Dog, 'id' | 'fullName' | 'image'>
+      & Pick<Dog, 'id' | 'fullName' | 'image' | 'sex'>
     )>> }
   )> }
 );
@@ -233,6 +233,7 @@ export const LargeCarouselDocument = gql`
       id
       fullName
       image
+      sex
     }
   }
 }

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import HorizontalScroll from '../HorizontalScroll';
 import { Dog } from '../../generated/graphql';
-import LargeDogCard from '../LargeDogCard';
+import DogCard from '../DogCard';
 
 type Props = {
   title?: ReactNode;
@@ -13,7 +13,7 @@ const LargeCarousel = ({ title, dogs }: Props) => {
     <div>
       {title}
       <HorizontalScroll>
-        {dogs.map((dog: Dog) => <LargeDogCard key={dog.id} dog={dog}/>)}
+        {dogs.map((dog: Dog) => <DogCard size={'large'} key={dog.id} dog={dog}/>)}
       </HorizontalScroll>
     </div>
   );
