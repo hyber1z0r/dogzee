@@ -10,7 +10,7 @@ type Dog {
     nickname: String
     registrationNumber: String
     birthday: DateTime
-    sex: String
+    sex: Sex
     title1: [String]
     title2: [String]
     title3: [String]

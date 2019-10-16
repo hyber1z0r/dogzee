@@ -10,6 +10,11 @@ import {
 } from 'sequelize-typescript';
 import { User } from './user.model';
 
+enum Sex {
+  Male = 'MALE',
+  Bitch = 'BITCH',
+}
+
 @Table({
   tableName: 'dogs',
   modelName: 'dog',
@@ -43,8 +48,8 @@ export class Dog extends Model<Dog> {
   birthday: Date;
 
   @AllowNull(false)
-  @Column(DataType.ENUM(['MALE', 'BITCH']))
-  sex: string;
+  @Column(DataType.ENUM(Object.values(Sex)))
+  sex: Sex;
 
   @AllowNull(true)
   @Column(DataType.ARRAY(DataType.STRING))
