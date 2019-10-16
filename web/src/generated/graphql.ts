@@ -39,7 +39,7 @@ export type Dog = {
   nickname?: Maybe<Scalars['String']>,
   registrationNumber?: Maybe<Scalars['String']>,
   birthday?: Maybe<Scalars['DateTime']>,
-  sex?: Maybe<Scalars['String']>,
+  sex?: Maybe<Sex>,
   title1?: Maybe<Array<Maybe<Scalars['String']>>>,
   title2?: Maybe<Array<Maybe<Scalars['String']>>>,
   title3?: Maybe<Array<Maybe<Scalars['String']>>>,
