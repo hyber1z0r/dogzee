@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import HorizontalScroll from '../HorizontalScroll';
-import { Dog } from '../../generated/graphql';
-import DogCard from '../DogCard';
+import HorizontalScroll from 'components/HorizontalScroll';
+import { Dog } from 'generated/graphql';
+import DogCard from 'components/DogCard';
 
 type Props = {
   title?: ReactNode;

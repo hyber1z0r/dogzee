@@ -2,10 +2,10 @@ import React, { ReactNode } from 'react';
 import {
   Dog,
   useLargeCarouselQuery,
-} from '../../generated/graphql';
+} from 'generated/graphql';
 import { Spin } from 'antd';
 import LargeCarousel from './LargeCarousel';
-import LoadingErrorAlert from '../LoadingErrorAlert';
+import LoadingErrorAlert from 'components/LoadingErrorAlert';
 
 type Props = {
   title?: ReactNode;

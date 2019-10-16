@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../../assets/images/dog-paw.svg';
-import LoginForm from '../../components/LoginForm';
-import { isExpired } from '../../utility/auth';
+import logo from 'assets/images/dog-paw.svg';
+import LoginForm from 'components/LoginForm';
+import { isExpired } from 'utility/auth';
 import { Redirect } from 'react-router';
 import styles from './Login.module.scss';
 

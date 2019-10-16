@@ -1,6 +1,6 @@
 import React, { ComponentType } from 'react';
 import { Redirect, Route, RouteComponentProps, RouteProps } from 'react-router';
-import { isExpired } from '../../utility/auth';
+import { isExpired } from 'utility/auth';
 
 type Props = {
   component: ComponentType;

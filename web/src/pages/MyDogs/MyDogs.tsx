@@ -1,5 +1,5 @@
 import React from 'react';
-import LargeCarousel from '../../components/LargeCarousel';
+import LargeCarousel from 'components/LargeCarousel';
 import styles from './MyDogs.module.scss';
 
 const MyDogs = () => {

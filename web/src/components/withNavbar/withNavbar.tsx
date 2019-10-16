@@ -1,5 +1,5 @@
 import React, { ComponentType } from 'react';
-import Navbar from '../Navbar';
+import Navbar from 'components/Navbar';
 import { Layout } from 'antd';
 
 const { Content } = Layout;

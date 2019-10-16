@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import MyDogs from '../../pages/MyDogs';
-import DogDetail from '../../pages/DogDetail';
-import Login from '../../pages/Login';
-import withNavbar from '../withNavbar';
-import PrivateRoute from '../PrivateRoute';
+import MyDogs from 'pages/MyDogs';
+import DogDetail from 'pages/DogDetail';
+import Login from 'pages/Login';
+import withNavbar from 'components/withNavbar';
+import PrivateRoute from 'components/PrivateRoute';
 
 const Routes = () => {
   return (

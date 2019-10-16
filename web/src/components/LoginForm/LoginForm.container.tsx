@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLoginMutation } from '../../generated/graphql';
+import { useLoginMutation } from 'generated/graphql';
 import LoginForm, { LoginFormValues } from './LoginForm';
 import { Redirect } from 'react-router';
-import { setToken } from '../../utility/auth';
+import { setToken } from 'utility/auth';
 
 const LoginFormContainer = () => {
   const [login, { loading, error, data }] = useLoginMutation();

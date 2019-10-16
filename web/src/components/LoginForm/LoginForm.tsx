@@ -4,7 +4,7 @@ import { FormComponentProps } from 'antd/es/form';
 import { Link } from 'react-router-dom';
 import { ApolloError } from 'apollo-client';
 import { GraphQLError } from 'graphql';
-import ErrorMessage from '../ErrorMessage';
+import ErrorMessage from 'components/ErrorMessage';
 import styles from './LoginForm.module.scss';
 
 export type LoginFormValues = {

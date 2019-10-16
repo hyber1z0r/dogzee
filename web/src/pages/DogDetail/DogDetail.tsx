@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router';
-import { useDogDetailQuery } from '../../generated/graphql';
+import { useDogDetailQuery } from 'generated/graphql';
 import { Spin } from 'antd';
-import LoadingErrorAlert from '../../components/LoadingErrorAlert';
+import LoadingErrorAlert from 'components/LoadingErrorAlert';
 
 type RouteParams = {
   dogId: string;
