@@ -3,7 +3,7 @@ import { NotFoundError } from '../errors';
 import { DogInput } from '../schema/resolvers/types';
 
 export const getDog = async (id: Dog['id']): Promise<Dog> => {
-  const dog = await Dog.findById(id);
+  const dog = await Dog.findByPk(id);
 
   if (!dog) {
     throw new NotFoundError(`Dog with registration ${id} not found`);
