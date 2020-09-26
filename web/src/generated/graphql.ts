@@ -138,7 +138,7 @@ export type DogDetailQuery = (
   { __typename?: 'Query' }
   & { dog: Maybe<(
     { __typename?: 'Dog' }
-    & Pick<Dog, 'id' | 'fullName' | 'birthday' | 'registrationNumber' | 'sex'>
+    & Pick<Dog, 'id' | 'fullName' | 'birthday' | 'registrationNumber' | 'sex' | 'image'>
   )> }
 );
 
@@ -196,6 +196,7 @@ export const DogDetailDocument = gql`
     birthday
     registrationNumber
     sex
+    image
   }
 }
     `;

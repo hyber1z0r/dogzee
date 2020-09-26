@@ -1,4 +1,4 @@
-import { Button, Form, Icon, Input } from 'antd';
+import { Button, Form, Icon, Input, Typography } from 'antd';
 import * as React from 'react';
 import { FormComponentProps } from 'antd/es/form';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,8 @@ import { ApolloError } from 'apollo-client';
 import { GraphQLError } from 'graphql';
 import ErrorMessage from 'components/ErrorMessage';
 import styles from './LoginForm.module.scss';
+
+const { Paragraph } = Typography;
 
 export type LoginFormValues = {
   email: string;
@@ -66,7 +68,7 @@ const LoginForm = ({ onSubmit, loading, submitError, form }: Props) => {
         {!!submitError && submitError.graphQLErrors.map((error: GraphQLError, index: number) => (
           <ErrorMessage key={index}>{error.message}</ErrorMessage>
         ))}
-        <p className={styles.signup}>Ny bruger? <Link to={'/signup'}>Opret profil</Link></p>
+        <Paragraph className={styles.signup}>Ny bruger? <Link to={'/signup'}>Opret profil</Link></Paragraph>
       </Form.Item>
     </Form>
   );

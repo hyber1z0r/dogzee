@@ -1,1 +1,1 @@
-export { default } from './DogDetail';
+export { default } from './DogDetail.container';

@@ -12,7 +12,7 @@ const Routes = () => {
       <Switch>
         <Route path={'/'} exact={true} component={Login}/>
         <PrivateRoute path={'/my-dogs'} component={withNavbar(MyDogs)}/>
-        <PrivateRoute path={'/dogs/:dogId'} component={withNavbar(DogDetail)}/>
+        <PrivateRoute path={'/dogs/:dogId'} component={DogDetail}/>
         <Route path={'*'} render={() => <Redirect to={'/'}/>}/>
       </Switch>
     </Router>

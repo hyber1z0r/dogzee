@@ -1,0 +1,27 @@
+@import "../../colors";
+@import "../../mixins";
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover {
+  height: 50vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dataContainer {
+  @include card-drawer-shadow();
+  background: $neutral6;
+  border-radius: 1rem 1rem 0 0;
+  margin-top: -2rem;
+  padding: 3rem 2rem 0;
+  height: 1000px;
+}
+
+.metaCarouselContainer {
+  margin: 2rem -2rem 0;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dog, Sex } from 'generated/graphql';
+import { Dog } from 'generated/graphql';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 import styles from './DogCard.module.scss';

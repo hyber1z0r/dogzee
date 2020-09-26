@@ -3,7 +3,10 @@ import logo from 'assets/images/dog-paw.svg';
 import LoginForm from 'components/LoginForm';
 import { isExpired } from 'utility/auth';
 import { Redirect } from 'react-router';
+import { Typography } from 'antd';
 import styles from './Login.module.scss';
+
+const { Title } = Typography;
 
 const Login = () => {
   if (!isExpired()) {
@@ -13,8 +16,8 @@ const Login = () => {
     <div className={styles.background}>
       <div className={styles.container}>
         <img src={logo} alt={'Logo'} className={styles.logo}/>
-        <h1>dogzee</h1>
-        <h3>Log ind for at fortsætte</h3>
+        <Title level={1}>dogzee</Title>
+        <Title level={4}>Log ind for at fortsætte</Title>
         <LoginForm/>
       </div>
     </div>

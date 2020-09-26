@@ -11,7 +11,7 @@
 .card {
   width: 236px;
   border-radius: 0.5rem;
-  @include card-shadow;
+  @include card-shadow();
 
   [class="ant-card-body"] {
     padding: 1rem;
