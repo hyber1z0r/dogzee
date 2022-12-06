@@ -29,7 +29,7 @@
     "morgan": "1.9.1",
     "pg": "7.12.1",
     "pg-hstore": "2.3.3",
-    "qs": "6.9.0",
+    "qs": "6.9.7",
     "reflect-metadata": "0.1.13",
     "sequelize": "4.44.3",
     "sequelize-cli": "5.5.1",
